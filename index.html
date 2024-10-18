@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr-TR">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Textarea alanlarının kullanılan ve kalan işlemleri</title>
+
+    </head>
+    <body>
+<textarea name="" id="alan" style="width:500px; height:200px;" onkeypress="ornek()"></textarea>
+<div>Kullanılan Karakter Sayısı:<span id="kullanilanKarakter">0</span></div>
+<div>Kalan Karakter Sayısı:<span id="kalanKarakter">250</span></div>
+    
+<script type="text/javascript" language="javascript">
+var kullanilan = 0;
+var maximum = 249;
+function ornek(){
+    var baglan = document.getElementById("alan");
+    var uzunluk = baglan.value.length;
+    if(uzunluk>=maximum){
+        var deger = baglan.value;
+        var olustur = deger.substr(0, maximum);
+        document.getElementById("alan").value = olustur;
+        document.getElementById("kullanilanKarakter").innerHTML = maximum + 1;
+        document.getElementById("kalanKarakter").innerHTML = 0;
+    }else{
+        var deger = baglan.value;
+        var olustur = deger.substr(0, maximum);
+        document.getElementById("alan").value = olustur;
+        document.getElementById("kullanilanKarakter").innerHTML = uzunluk + 1;
+        document.getElementById("kalanKarakter").innerHTML =  (maximum + 1) - (uzunluk + 1) ;
+    }
+}
+</script>
+    </body>
+</html>
